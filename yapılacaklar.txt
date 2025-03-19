@@ -2,3 +2,6 @@ GİRİŞ ARAYÜZÜ BELİRLE
 HESAP ÜYELİK GİRİŞİ
 ASİSTAN MODELİ/ MANUEL KULLANIM 
 HARCAMA NOTE KEEPING
+Haftalık program taslakları 
+Rapor Veri Analizi
+Asistan ve Arayüz Nasıl Ayarlanacak?(Udemy)
