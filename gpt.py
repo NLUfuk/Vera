@@ -1,4 +1,5 @@
 import json
+import sys
 
 TODO_FILE = "todo_list.json"
 
@@ -75,4 +76,41 @@ def main():
             print("Geçersiz seçim, tekrar deneyin.")
 
 if __name__ == "__main__":
-    main()
+    def main():
+        if len(sys.argv) < 2:
+            print("Kullanım: python gpt.py [list|add|done|delete] [görev]")
+            return
+
+        command = sys.argv[1]
+
+        if command == "list":
+            list_tasks()
+        elif command == "add":
+            if len(sys.argv) < 3:
+                print("Eklemek istediğiniz görevi belirtin.")
+                return
+            task = " ".join(sys.argv[2:])
+            add_task(task)
+        elif command == "done":
+            if len(sys.argv) < 3:
+                print("Tamamlanan görev numarasını belirtin.")
+                return
+            try:
+                index = int(sys.argv[2])
+                mark_done(index)
+            except ValueError:
+                print("Geçersiz görev numarası.")
+        elif command == "delete":
+            if len(sys.argv) < 3:
+                print("Silinecek görev numarasını belirtin.")
+                return
+            try:
+                index = int(sys.argv[2])
+                delete_task(index)
+            except ValueError:
+                print("Geçersiz görev numarası.")
+        else:
+            print("Geçersiz komut. Kullanım: python gpt.py [list|add|done|delete] [görev]")
+
+    if __name__ == "__main__":
+        main()
