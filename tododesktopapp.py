@@ -51,3 +51,35 @@ def main():
         print("\nTo-Do List App")
         print("1. Add Task")
         print("2. List Tasks")
+        print("3. Mark Task as Done")
+        print("4. Delete Task")
+        print("5. Exit")
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            task = input("Enter task: ")
+            add_task(task)
+        elif choice == "2":
+            list_tasks()
+        elif choice == "3":
+            list_tasks()
+            try:
+                task_number = int(input("Enter task number to mark as done: "))
+                mark_done(task_number)
+            except ValueError:
+                print("Invalid input.")
+        elif choice == "4":
+            list_tasks()
+            try:
+                task_number = int(input("Enter task number to delete: "))
+                delete_task(task_number)
+            except ValueError:
+                print("Invalid input.")
+        elif choice == "5":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice, try again.")
+
+if __name__ == "__main__":
+    main()
