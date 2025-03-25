@@ -1,0 +1,72 @@
+import { useState, useEffect } from "react";
+import { Button, Input } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+export default function TodoApp() {
+  const [tasks, setTasks] = useState([]);
+  const [taskName, setTaskName] = useState("");
+  const [penalty, setPenalty] = useState(0);
+
+  useEffect(() => {
+    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const savedPenalty = JSON.parse(localStorage.getItem("penalty")) || 0;
+    setTasks(savedTasks);
+    setPenalty(savedPenalty);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("penalty", JSON.stringify(penalty));
+  }, [tasks, penalty]);
+
+  const addTask = () => {
+    if (taskName.trim()) {
+      const newTask = {
+        id: Date.now(),
+        name: taskName,
+        completed: false,
+        dueTime: Date.now() + 60000, // 1 dakika sonra ceza sistemi için örnek süre
+      };
+      setTasks([...tasks, newTask]);
+      setTaskName("");
+    }
+  };
+
+  const completeTask = (id) => {
+    setTasks(tasks.map(task => task.id === id ? { ...task, completed: true } : task));
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = Date.now();
+      setTasks(prevTasks => prevTasks.map(task => {
+        if (!task.completed && now > task.dueTime) {
+          setPenalty(p => p + 1);
+        }
+        return task;
+      }));
+    }, 5000); // 5 saniyede bir kontrol et
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">To-Do List (Ceza Sistemi)</h1>
+      <div className="flex gap-2 my-4">
+        <Input value={taskName} onChange={(e) => setTaskName(e.target.value)} placeholder="Yeni görev ekle" />
+        <Button onClick={addTask}>Ekle</Button>
+      </div>
+      <div>
+        {tasks.map((task) => (
+          <Card key={task.id} className="my-2 p-2 flex justify-between">
+            <CardContent>
+              <p className={task.completed ? "line-through" : ""}>{task.name}</p>
+              {!task.completed && <Button onClick={() => completeTask(task.id)}>Tamamlandı</Button>}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <h2 className="text-xl mt-4">Ceza Puanı: {penalty}</h2>
+    </div>
+  );
+}
