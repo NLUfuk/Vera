@@ -1,3 +1,2 @@
-@konu hakkında hal bilgim yok ve uykum var 
-@unutuyordum 
-unuta yazdım 
+@uygulamaya başlıyoruz tamamen 
+@to do list uygulması , desktop için ve içerik geliştirilmiş 
