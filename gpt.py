@@ -114,3 +114,8 @@ if __name__ == "__main__":
 
     if __name__ == "__main__":
         main()
+
+ufuk=input("ufuk")
+if __name__ == "__main__":
+    main()
+    
