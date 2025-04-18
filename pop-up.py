@@ -46,9 +46,9 @@ task_list.pack(pady=5)
 btn_frame = tk.Frame(root)
 btn_frame.pack()
 
-tk.Button(btn_frame, text="Ekle", command=add_task).grid(row=0, column=0, padx=5)
-tk.Button(btn_frame, text="Sil", command=remove_task).grid(row=0, column=1, padx=5)
-tk.Button(btn_frame, text="Retask", command=retask).grid(row=0, column=2, padx=5)
-tk.Button(btn_frame, text="Retasking Nedir?", command=show_info).grid(row=0, column=3, padx=5)
+tk.Button(btn_frame, text="Görev ekle", command=add_task).grid(row=0, column=0, padx=5)
+tk.Button(btn_frame, text="Görev Sil", command=remove_task).grid(row=0, column=1, padx=5)
+tk.Button(btn_frame, text="Yeniden oluştur.", command=retask).grid(row=0, column=2, padx=5)
+
 
 root.mainloop()
