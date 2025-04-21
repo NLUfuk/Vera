@@ -83,3 +83,24 @@ def main():
 
 if __name__ == "__main__":
     main()
+return (
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">To-Do List (Ceza Sistemi)</h1>
+      <div className="flex gap-2 my-4">
+        <Input value={taskName} onChange={(e) => setTaskName(e.target.value)} placeholder="Yeni görev ekle" />
+        <Button onClick={addTask}>Ekle</Button>
+      </div>
+      <div>
+        {tasks.map((task) => (
+          <Card key={task.id} className="my-2 p-2 flex justify-between">
+            <CardContent>
+              <p className={task.completed ? "line-through" : ""}>{task.name}</p>
+              {!task.completed && <Button onClick={() => completeTask(task.id)}>Tamamlandı</Button>}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <h2 className="text-xl mt-4">Ceza Puanı: {penalty}</h2>
+    </div>
+  );
+}
