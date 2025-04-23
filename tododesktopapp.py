@@ -105,3 +105,4 @@ return (
   );
 }
 print("lla alla") 
+print("Rorschach testi gibi bulutlara bak Bazen gereklidir maviliği hissetmelisin")
