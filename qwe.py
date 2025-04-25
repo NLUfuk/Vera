@@ -6,7 +6,9 @@ def main():
         print("1. Add Task")
         print("2. Show Tasks")
         print("3. Mark Task as Done")
-        print("4. Exit")
+        print("3.1 Clear all tasks")   
+        print("4. About Us")
+        print("5. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -33,10 +35,18 @@ def main():
             else:
                 print("Invalid task number.")
 
-        elif choice == '4':
-            print("Exiting the To-Do List.")
+        elif choice == '3.1':
+            for i in range(len(tasks)):
+                print(f"{i + 1}. {tasks[i]['task']} - {tasks[i]['done']}")
+            tasks.clear()
+            print("All tasks cleared!")
             break
-
+        elif choice == '4':
+            print("About us")
+            break
+        elif choice == '5':
+            print("Exiting the To-Do List.")
+            break    
         else:
             print("Invalid choice. Please try again.")
 
