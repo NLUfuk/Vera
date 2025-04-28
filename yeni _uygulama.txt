@@ -1,0 +1,3 @@
+ödevin devam etmesi için yeni bir uygulama daha yapılacak ve en sonunda bir package olarak sunulacak 
+gereksiz ve anlamını kaybetmiş .txt ve .py dosyaları temizlenecek.
+2. program planlanacak 
