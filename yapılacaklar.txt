@@ -13,3 +13,6 @@ let us
 
 goitha book exactly modern religion of new world. 
 ara sıra içmek yetmez
+
+
+prefix gösterimlerde pda kullanımı gerçekleştriren algoritma yazımı palindrome sistemler için hafıza yapısını stack ile oluşturma 
