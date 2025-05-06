@@ -29,7 +29,7 @@ colors = ['gold', 'lightgray']
 fig, ax = plt.subplots()
 ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
 ax.axis('equal')  # Daire olarak göster
-plt.title("Takım 2'nin Şampiyonluk İhtimali (5 Maç)")
+plt.title("Takım 2'nin Şampiyonluk İhtimali ( ," +repeater ",5 Maç)")
 plt.tight_layout()
 
 full_5match_prob, fig
