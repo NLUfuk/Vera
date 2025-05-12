@@ -40,5 +40,3 @@ plt.tight_layout()
 
 var = full_5match_prob, fig
 print("2. takımın şampiyon olma ihtimali= %", full_5match_prob)
-print("2. takımın şampiyon olma ihtimali= %", full_5match_prob)
-print("2. takımın şampiyon olma ihtimali= %", full_5match_prob)
