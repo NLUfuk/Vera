@@ -16,3 +16,6 @@ ara sıra içmek yetmez
 
 
 prefix gösterimlerde pda kullanımı gerçekleştriren algoritma yazımı palindrome sistemler için hafıza yapısını stack ile oluşturma 
+
+
+staj kabulü aldım erp demo başlar yarın :D 
