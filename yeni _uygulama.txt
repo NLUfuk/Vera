@@ -5,3 +5,6 @@ gereksiz ve anlamını kaybetmiş .txt ve .py dosyaları temizlenecek.
 oyun app geliyor
 das is ein zwerdeu abreihtag
 Ich hab' auch Probleme, ich hab' auch Träume
+
+
+
