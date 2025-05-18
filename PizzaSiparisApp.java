@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 class PizzaSiparisFrame extends JFrame {
 
-    JComboBox<String> hamurBox, pizzaBox, boyutBox;
-    JCheckBox patatesBox, icecekBox, tatliBox;
+    JComboBox<String> hamurBox, pizzaBox, boyutBox, patatesBox, icecekBox, tatliBox;
+//    JCheckBox   tatliBox;
     JButton siparisButton;
     JTextArea sonucArea;
 
@@ -18,7 +18,7 @@ class PizzaSiparisFrame extends JFrame {
         setLocationRelativeTo(null);
 
         // Arka plan rengi
-        getContentPane().setBackground(new Color(255, 250, 240)); // açık krem
+        getContentPane().setBackground(new Color(253, 121, 86)); // açık krem
 
         Font labelFont = new Font("Verdana", Font.BOLD, 13);
         Font boxFont = new Font("Verdana", Font.PLAIN, 12);
@@ -51,28 +51,56 @@ class PizzaSiparisFrame extends JFrame {
         boyutLabel.setForeground(new Color(51, 51, 102));
         add(boyutLabel);
 
-        boyutBox = new JComboBox<>(new String[]{"Küçük (1 kişi)", "Orta (2 kişi)", "Büyük (3+ kişi)"});
+        boyutBox = new JComboBox<>(new String[]{"Küçük (12 cm)", "Orta (18 cm)", "Büyük (24 cm)"});
         boyutBox.setBounds(200, 110, 250, 25);
         boyutBox.setFont(boxFont);
         add(boyutBox);
 
-        patatesBox = new JCheckBox("Patates Kızartması");
-        patatesBox.setBounds(200, 150, 200, 20);
-        patatesBox.setBackground(new Color(255, 250, 240));
+        JLabel patatesLabel = new JLabel("Patates Seçimi:");
+        patatesLabel.setBounds(30, 150, 150, 20);
+        patatesLabel.setFont(labelFont);
+        patatesLabel.setForeground(new Color(51, 51, 102));
+        add(patatesLabel);
+
+        patatesBox = new JComboBox<>(new String[]{"Küçük", "Orta", "Büyük",  "Maxi"});
+        patatesBox.setBounds(200, 150, 250, 25);
+        patatesBox.setFont(boxFont);
         add(patatesBox);
 
-        icecekBox = new JCheckBox("İçecek");
-        icecekBox.setBounds(200, 180, 200, 20);
-        icecekBox.setBackground(new Color(255, 250, 240));
+        JLabel icecekLabel = new JLabel("İçecek Seçimi:");
+        icecekLabel.setBounds(30, 190, 150, 20);
+        icecekLabel.setFont(labelFont);
+        icecekLabel.setForeground(new Color(51, 51, 102));
+        add(icecekLabel);
+
+        icecekBox = new JComboBox<>(new String[]{"Cola", "Ayran", "Maden Suyu",  "Fanta"});
+        icecekBox.setBounds(200, 190, 250, 25);
+        icecekBox.setFont(boxFont);
         add(icecekBox);
 
-        tatliBox = new JCheckBox("Tatlı");
-        tatliBox.setBounds(200, 210, 200, 20);
-        tatliBox.setBackground(new Color(255, 250, 240));
+        //icecekBox = new JCheckBox("İçecek");
+        //icecekBox.setBounds(200, 180, 200, 20);
+        //icecekBox.setBackground(new Color(255, 250, 240));
+        //add(icecekBox);//
+
+//        tatliBox = new JCheckBox("Tatlı");
+//        tatliBox.setBounds(200, 230, 200, 20);
+//        tatliBox.setBackground(new Color(255, 250, 240));
+//        add(tatliBox);
+
+        JLabel tatliLabel = new JLabel("Tatlı Seçimi:");
+        tatliLabel.setBounds(30, 230, 150, 20);
+        tatliLabel.setFont(labelFont);
+        tatliLabel.setForeground(new Color(51, 51, 102));
+        add(tatliLabel);
+
+        tatliBox = new JComboBox<>(new String[]{"Cookie", "Brownie", "Sufle",  "Special"});
+        tatliBox.setBounds(200, 230, 250, 25);
+        tatliBox.setFont(boxFont);
         add(tatliBox);
 
         siparisButton = new JButton("✔ Siparişi Tamamla");
-        siparisButton.setBounds(200, 250, 180, 30);
+        siparisButton.setBounds(200, 270, 180, 30);
         siparisButton.setBackground(new Color(0, 153, 76));
         siparisButton.setForeground(Color.WHITE);
         siparisButton.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -83,10 +111,10 @@ class PizzaSiparisFrame extends JFrame {
         sonucArea.setEditable(false);
         sonucArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
         JScrollPane scrollPane = new JScrollPane(sonucArea);
-        scrollPane.setBounds(30, 300, 530, 130);
+        scrollPane.setBounds(30, 310, 530, 150);
         add(scrollPane);
 
-        
+
 
         // Buton Action
         siparisButton.addActionListener(new ActionListener() {
@@ -103,26 +131,48 @@ class PizzaSiparisFrame extends JFrame {
         String hamur = (String) hamurBox.getSelectedItem();
         String pizza = (String) pizzaBox.getSelectedItem();
         String boyut = (String) boyutBox.getSelectedItem();
-
+        String patates = (String) patatesBox.getSelectedItem();
+        String icecek = (String) icecekBox.getSelectedItem();
+        String tatli = (String) tatliBox.getSelectedItem();
         int fiyat = 0;
+        assert boyut != null;
         if (boyut.contains("Küçük")) fiyat += 80;
-        else if (boyut.contains("Orta")) fiyat += 110;
-        else fiyat += 140;
+            else if (boyut.contains("Orta")) fiyat += 110;
+            else fiyat += 140;
 
-        if (patatesBox.isSelected()) fiyat += 25;
-        if (icecekBox.isSelected()) fiyat += 20;
-        if (tatliBox.isSelected()) fiyat += 30;
+
+        if (patates.contains("Küçük")) fiyat += 25;
+            else if (patates.contains("Orta")) fiyat += 80;
+            else if (patates.contains("Büyük")) fiyat += 110;
+            else fiyat += 140;
+
+        if (icecek.contains("Cola")) fiyat +=40;
+        else if (icecek.contains("Gazoz")) fiyat += 30;
+        else if (icecek.contains("Ayran")) fiyat += 15;
+        else if (icecek.contains("Maden Suyu")) fiyat += 15;
+        else if (icecek.contains("Fanta")) fiyat += 35;
+        else fiyat += 0;
+        //if (tatliBox.isSelected()) fiyat += 30;
+
+        if (tatli.contains("Sufle")) fiyat += 100;
+        else if (tatli.contains("Cookie")) fiyat += 120;
+        else if (tatli.contains("Brownie")) fiyat += 150;
+        else fiyat += 140;
 
         sonucArea.setText("🍕 Sipariş Özeti:\n\n");
         sonucArea.append("Hamur Tipi   : " + hamur + "\n");
         sonucArea.append("Pizza Türü   : " + pizza + "\n");
         sonucArea.append("Boyut        : " + boyut + "\n");
+        sonucArea.append("Patates      : " + patates + "\n");
+        sonucArea.append("İcecek       : " + icecek + "\n");
+        sonucArea.append("Tatlı        : " + tatli + "\n");
+        sonucArea.append("Toplam Tutar : " + fiyat + "₺"+ "\n");
+        sonucArea.append("Yine bekleriz, afiyet olsun ");
 
-        if (patatesBox.isSelected()) sonucArea.append("➕ Patates Kızartması\n");
-        if (icecekBox.isSelected()) sonucArea.append("➕ İçecek\n");
-        if (tatliBox.isSelected()) sonucArea.append("➕ Tatlı\n");
 
-        sonucArea.append("\nToplam Tutar: " + fiyat + "₺");
+//        if (tatliBox.isSelected()) sonucArea.append("➕ Tatlı\n");
+
+
     }
 
     public static void main(String[] args) {
