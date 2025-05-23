@@ -32,11 +32,11 @@ labels = ['Takım 2 Şampiyon', 'Takım 1 Şampiyon veya Beraber']
 colors = ['#ff9999', '#66b3ff']
 
 # Grafik oluştur
-fig, ax = plt.subplots()
-ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
-ax.axis('equal')
-plt.title("Takım 2'nin Şampiyonluk İhtimali")
-plt.tight_layout()
+#fig, ax = plt.subplots()
+#ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
+#ax.axis('equal')
+#plt.title("Takım 2'nin Şampiyonluk İhtimali")
+#plt.tight_layout()#
 
 # Sonuç yazdır
 print(f"\nTakım 2'nin şampiyon olma ihtimali: %{full_5match_prob:.2f}")
