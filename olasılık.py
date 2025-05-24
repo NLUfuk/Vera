@@ -12,7 +12,7 @@ def simulate_full_matches(start_points_team1, start_points_team2):
     outcomes = [0, 1, 3]  # Maç sonucu: Mağlubiyet, Beraberlik, Galibiyet
     total_cases = 0
     champion_cases = 0
-
+#get for all teams
     for t1_results in product(outcomes, repeat=rp1):
         t1_total = start_points_team1 + sum(t1_results)
         for t2_results in product(outcomes, repeat=rp2):
@@ -32,11 +32,11 @@ labels = ['Takım 2 Şampiyon', 'Takım 1 Şampiyon veya Beraber']
 colors = ['#ff9999', '#66b3ff']
 
 # Grafik oluştur
-fig, ax = plt.subplots()
-ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
-ax.axis('equal')
-plt.title("Takım 2'nin Şampiyonluk İhtimali")
-plt.tight_layout()
+#fig, ax = plt.subplots()
+#ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
+#ax.axis('equal')
+#plt.title("Takım 2'nin Şampiyonluk İhtimali")
+#plt.tight_layout()#
 
 # Sonuç yazdır
 print(f"\nTakım 2'nin şampiyon olma ihtimali: %{full_5match_prob:.2f}")
